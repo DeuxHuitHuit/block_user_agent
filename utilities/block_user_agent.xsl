@@ -12,19 +12,20 @@
 	
 	<xsl:if test="/data/params/block-user-agent = 'Yes'">
 		<style type="text/css">
-			#block-user-agent-content {font-family:Helvetica,Arial,sans-serif;margin:0;padding:0;}
+			#block-user-agent-content {font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;}
 			#block-user-agent-background{position:fixed;width:100%;height:100%;background-color: black; opacity:0.8;z-index: 1000000;}
 			#block-user-agent-content{position:fixed;margin:auto;width:80%;height:400px;text-align:center;z-index: 1000001; top: 50%;left: 50%; margin-top:-200px; margin-left:-40%;}
 			#block-user-agent-content-wrap{position:relative;}
-			#block-user-agent-title{font-size:20px;font-weight:bold;color:#FFFFFF;height:25px;}
+			#block-user-agent-title{margin-top:30px;font-size:20px;font-weight:bold;color:#FFFFFF;height:25px;}
 			#block-user-agent-subTitle{font-size:17px;margin-top:5px;color:#FFFFFF;}
 			#block-user-agent-browsers{margin:30px auto 0 auto;width:80%;}
-			.block-user-agent-browser{display:inline-block;width:50px;vertical-align:top;}
+			.block-user-agent-browser{display:inline-block;width:110px;vertical-align:top;}
 			.block-user-agent-margin{margin-left: 50px;}
+			.block-user-agent-browser span{display:block;margin-top:5px;}
 			.block-user-agent-browser a{width:50px;padding:10px 1px 10px 1px;display:block;color:#FFFFFF;text-decoration:none;font-size:12px;position:relative;}
 			.block-user-agent-browser a:hover{text-decoration:none;padding:9px 0 9px 0;border:1px solid white;}
 			#block-user-agent-closePop{width:100%;position:absolute;bottom:-80px;font-size:16px;color:#FFFFFF;}
-			#block-user-agent-closePop a{display:block;width:18px;height:18px;margin:0 auto 5px auto;color:#FFFFFF;text-decoration:none;border:1px solid white;padding:4px 7px 3px 7px;}
+			#block-user-agent-closePop a{display:inline-block;width:18px;height:18px;margin-right:20px;color:#FFFFFF;text-decoration:none;border:1px solid white;padding:6px 7px 4px 7px;}
 			#block-user-agent-closePop a:hover{background-color:#FFFFFF;color:#000000;}
 			#block-user-agent-content a img{border:0;}
 		</style>
@@ -75,8 +76,8 @@
 					</xsl:if>
 				</div>
 				<div id="block-user-agent-closePop">
-					<a href="#" onclick="block_user_agent_close()">X</a>
 					<span>
+						<a href="#" onclick="block_user_agent_close()">X</a>
 						<xsl:value-of select="$close" />
 					</span>
 				</div>
