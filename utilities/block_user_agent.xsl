@@ -68,7 +68,7 @@
 					</xsl:if>
 					<xsl:if test="$opera = true()">
 						<div class="block-user-agent-browser">
-							<a href="http://www.microsoft.com/france/windows/internet-explorer/" target="_blank" title="Opera">
+							<a href="http://www.opera.com/download/" target="_blank" title="Opera">
 								<img src="/extensions/block_user_agent/assets/opera-logo.png" alt="Opera"/>
 								<span>Opera</span>
 							</a>
@@ -76,7 +76,7 @@
 					</xsl:if>
 					<xsl:if test="$ie = true()">
 						<div class="block-user-agent-browser">
-							<a href="http://www.opera.com/download/" target="_blank" title="Opera">
+							<a href="http://www.microsoft.com/france/windows/internet-explorer/" target="_blank" title="Opera">
 								<img src="/extensions/block_user_agent/assets/ie9-logo.png" alt="Internet Explorer 9"/>
 								<span>Internet Explorer 9</span>
 							</a>
