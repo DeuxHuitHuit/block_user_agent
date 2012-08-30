@@ -20,10 +20,9 @@
 			#block-user-agent-title{margin-top:30px;font-size:20px;font-weight:bold;color:#FFFFFF;height:25px;}
 			#block-user-agent-subTitle{font-size:17px;margin-top:5px;color:#FFFFFF;}
 			#block-user-agent-browsers{margin:30px auto 0 auto;width:80%;}
-			.block-user-agent-browser{display:inline-block;width:110px;vertical-align:top;}
-			.block-user-agent-margin{margin-left: 50px;}
+			.block-user-agent-browser{margin: 0 25px 0 25px;display:inline-block;width:110px;vertical-align:top;}
 			.block-user-agent-browser span{display:block;margin-top:5px;}
-			.block-user-agent-browser a{width:50px;padding:10px 1px 10px 1px;display:block;color:#FFFFFF;text-decoration:none;font-size:12px;position:relative;}
+			.block-user-agent-browser a{padding:10px 1px 10px 1px;display:block;color:#FFFFFF;text-decoration:none;font-size:12px;position:relative;}
 			.block-user-agent-browser a:hover{text-decoration:none;padding:9px 0 9px 0;border:1px solid white;}
 			#block-user-agent-closePop{width:100%;position:absolute;bottom:-80px;font-size:16px;color:#FFFFFF;}
 			#block-user-agent-closePop a{display:inline-block;width:18px;height:18px;margin-right:20px;color:#FFFFFF;text-decoration:none;border:1px solid white;padding:6px 7px 4px 7px;}
@@ -60,7 +59,7 @@
 						</div>
 					</xsl:if>
 					<xsl:if test="$chrome = true()">
-						<div class="block-user-agent-browser block-user-agent-margin">
+						<div class="block-user-agent-browser">
 							<a href="http://www.google.com/chrome/?hl=fr" target="_blank" title="Chrome">
 								<img src="/extensions/block_user_agent/assets/google-chrome-logo.png" alt="Chrome"/>
 								<span>Google Chrome</span>
@@ -68,16 +67,16 @@
 						</div>
 					</xsl:if>
 					<xsl:if test="$opera = true()">
-						<div class="block-user-agent-browser block-user-agent-margin">
-							<a href="http://www.microsoft.com/france/windows/internet-explorer/" target="_blank" title="Opera">
+						<div class="block-user-agent-browser">
+							<a href="http://www.opera.com/download/" target="_blank" title="Opera">
 								<img src="/extensions/block_user_agent/assets/opera-logo.png" alt="Opera"/>
 								<span>Opera</span>
 							</a>
 						</div>
 					</xsl:if>
 					<xsl:if test="$ie = true()">
-						<div class="block-user-agent-browser block-user-agent-margin">
-							<a href="http://www.opera.com/download/" target="_blank" title="Opera">
+						<div class="block-user-agent-browser">
+							<a href="http://www.microsoft.com/france/windows/internet-explorer/" target="_blank" title="Opera">
 								<img src="/extensions/block_user_agent/assets/ie9-logo.png" alt="Internet Explorer 9"/>
 								<span>Internet Explorer 9</span>
 							</a>
