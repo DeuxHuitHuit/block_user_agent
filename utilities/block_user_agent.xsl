@@ -9,6 +9,7 @@
 	<xsl:param name="firefox" select="true()" />
 	<xsl:param name="chrome" select="true()" />
 	<xsl:param name="opera" select="true()" />
+	<xsl:param name="ie" select="true()" />
 	
 	<xsl:if test="/data/params/block-user-agent = 'Yes'">
 		<style type="text/css">
@@ -68,9 +69,17 @@
 					</xsl:if>
 					<xsl:if test="$opera = true()">
 						<div class="block-user-agent-browser block-user-agent-margin">
-							<a href="http://www.opera.com/download/" target="_blank" title="Opera">
-								<img src="/extensions/block_user_agent/assets/opera-logo.png" alt="chargez Opera"/>
+							<a href="http://www.microsoft.com/france/windows/internet-explorer/" target="_blank" title="Opera">
+								<img src="/extensions/block_user_agent/assets/opera-logo.png" alt="Opera"/>
 								<span>Opera</span>
+							</a>
+						</div>
+					</xsl:if>
+					<xsl:if test="$ie = true()">
+						<div class="block-user-agent-browser block-user-agent-margin">
+							<a href="http://www.opera.com/download/" target="_blank" title="Opera">
+								<img src="/extensions/block_user_agent/assets/ie9-logo.png" alt="Internet Explorer 9"/>
+								<span>Internet Explorer 9</span>
 							</a>
 						</div>
 					</xsl:if>
