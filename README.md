@@ -4,7 +4,7 @@ Version: 1.0
 
 ##  ##
 
-XSL template and regexp combine to help fight old browsers.
+XSL template and regexp combined to help fight old browsers.
 
 ### REQUIREMENTS ###
 
@@ -14,7 +14,7 @@ XSL template and regexp combine to help fight old browsers.
 
 
 - Unzip the block_user_agent.zip file
-- (re)Name the folder ***block_user_agent**
+- (re)Name the folder **block_user_agent**
 - Put into the extension directory
 - Enable/install just like any other extension
 - Go to the *Preferences* page to customize the regular expression
