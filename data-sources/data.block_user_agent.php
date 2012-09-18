@@ -13,7 +13,7 @@
 
 		public function about(){
 			return array(
-				'name' => 'Accueil',
+				'name' => 'Block User Agent',
 				'author' => array(
 					'name' => 'Deux Huit Huit',
 					'website' => 'http://www.deuxhuithuit.com',
