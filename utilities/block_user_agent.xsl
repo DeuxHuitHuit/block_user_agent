@@ -14,7 +14,7 @@
 	<xsl:if test="/data/params/block-user-agent = 'Yes'">
 		<style type="text/css">
 			#block-user-agent-content {font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;}
-			#block-user-agent-background{position:fixed;width:100%;height:100%;background-color: black; opacity:0.8;z-index: 1000000;}
+			#block-user-agent-background{position:fixed;width:100%;height:100%;background-color: black; opacity:0.8;z-index: 1000000;top:0;left:0;right:0;bottom:0;}
 			#block-user-agent-content{position:fixed;margin:auto;width:80%;height:400px;text-align:center;z-index: 1000001; top: 50%;left: 50%; margin-top:-200px; margin-left:-40%;}
 			#block-user-agent-content-wrap{position:relative;}
 			#block-user-agent-title{margin-top:30px;font-size:20px;font-weight:bold;color:#FFFFFF;height:25px;}
@@ -76,9 +76,9 @@
 					</xsl:if>
 					<xsl:if test="$ie = true()">
 						<div class="block-user-agent-browser">
-							<a href="http://www.microsoft.com/france/windows/internet-explorer/" target="_blank" title="Opera">
+							<a href="http://www.microsoft.com/windows/internet-explorer/" target="_blank" title="Internet Explorer">
 								<img src="/extensions/block_user_agent/assets/ie9-logo.png" alt="Internet Explorer 9"/>
-								<span>Internet Explorer 9</span>
+								<span>Internet Explorer</span>
 							</a>
 						</div>
 					</xsl:if>
