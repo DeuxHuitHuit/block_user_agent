@@ -20,7 +20,7 @@ XSL template and regexp combined to help fight old browsers.
 - Go to the *Preferences* page to customize the regular expression
 - Include the xsl file located in extensions/block_user_agent/utilities
 	- `<xsl:import href="../../extensions/block_user_agent/utilities/block_user_agent.xsl" />`
-- Call the block-user-agent template. Parameters are optional
+- You must call the block-user-agent template directly under the `<body>` tag. Parameters are optional
 	- `<xsl:call-template name="block-user-agent" />`
 
 *Voila !*
