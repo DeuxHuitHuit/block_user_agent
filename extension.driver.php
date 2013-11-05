@@ -80,11 +80,13 @@
 		
 		public static function isBlocked() {
 			$regex = self::getRegEx();
-			$val = null;
-			try {
-				$val = preg_match($regex, $_SERVER['HTTP_USER_AGENT']);
-			} catch (Exception $e) {
-				$val = $e->getMessage();
+			$val = 0;
+			if (!empty($regex)) {
+				try {
+					$val = preg_match($regex, $_SERVER['HTTP_USER_AGENT']);
+				} catch (Exception $e) {
+					$val = $e->getMessage();
+				}
 			}
 			return $val;
 		}
