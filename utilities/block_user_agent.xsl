@@ -13,9 +13,8 @@
 	<xsl:param name="client-side-detection" select="false()" />
 	
 	<xsl:if test="/data/params/block-user-agent = 'Yes' or $client-side-detection = true()">
-		<div id="block-user-agent">
+		<div id="block-user-agent" style="display:none">
 		<style type="text/css" scoped="">
-			#block-user-agent {display: none;}
 			#block-user-agent-content {font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;}
 			#block-user-agent-background{position:fixed;width:100%;height:100%;background-color: black; opacity:0.8;z-index: 1000000;top:0;left:0;right:0;bottom:0;}
 			#block-user-agent-content{position:fixed;margin:auto;width:80%;height:400px;text-align:center;z-index: 1000001; top: 50%;left: 50%; margin-top:-200px; margin-left:-40%;}
@@ -97,9 +96,13 @@
 		
 		<xsl:if test="$client-side-detection = true()">
 			<script>
-				if (!<xsl:value-of select="/data/params/block-user-agent-regex" />.test(navigator.userAgent.toString())) {
-					document.body.removeChild(document.getElementById('block-user-agent'));
-				}
+				(function (d, n) {
+					if (!<xsl:value-of select="/data/params/block-user-agent-regex" />.test(navigator.userAgent.toString())) {
+						d.body.removeChild(n);
+					} else {
+						n.setAttribute('style','');
+					}
+				})(document, document.getElementById('block-user-agent'))
 			</script>
 		</xsl:if>
 		
