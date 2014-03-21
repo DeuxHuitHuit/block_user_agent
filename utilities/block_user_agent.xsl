@@ -11,8 +11,9 @@
 	<xsl:param name="opera" select="true()" />
 	<xsl:param name="ie" select="true()" />
 	
+	
 	<xsl:if test="/data/params/block-user-agent = 'Yes'">
-		<style type="text/css">
+		<style type="text/css" scoped="">
 			#block-user-agent-content {font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;}
 			#block-user-agent-background{position:fixed;width:100%;height:100%;background-color: black; opacity:0.8;z-index: 1000000;top:0;left:0;right:0;bottom:0;}
 			#block-user-agent-content{position:fixed;margin:auto;width:80%;height:400px;text-align:center;z-index: 1000001; top: 50%;left: 50%; margin-top:-200px; margin-left:-40%;}
