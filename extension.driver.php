@@ -1,6 +1,6 @@
 <?php
 	/*
-	Copyight: Deux Huit 2012
+	Copyight: Deux Huit 2012, 2014
 	License: MIT, see the LICENCE file
 	*/
 
@@ -27,26 +27,6 @@
 		 * @var array
 		 */
 		protected $errors = array();
-
-		/**
-		 * Credits for the extension
-		 */
-		public function about() {
-			return array(
-				'name'			=> self::EXT_NAME,
-				'version'		=> '1.0',
-				'release-date'	=> '2012-08-29',
-				'author'		=> array(
-					'name'			=> 'Deux Huit Huit',
-					'website'		=> 'http://www.deuxhuithuit.com',
-					'email'			=> 'open-source (at) deuxhuithuit.com'
-				),
-				'description'	=> __('Allows you to block certain user agent from accessing the site'),
-				'compatibility' => array(
-					'2.2.5' => true
-				)
-	 		);
-		}
 
 		/**
 		 *
@@ -94,6 +74,7 @@
 		public function frontendParamsPostResolve($params) {
 			$blocked = self::isBlocked();
 			$params['params']['block-user-agent'] = ($blocked === 1 ? 'Yes' : ($blocked === 0 ? 'No' : $blocked));
+			$params['params']['block-user-agent-regex'] = self::getRegEx();
 		} 
 		
 		

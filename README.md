@@ -1,10 +1,10 @@
 # Block User Agent #
 
-Version: 1.0
+Version: 1.1
 
 ##  ##
 
-XSL template and regexp combined to help fight old browsers.
+XSL template and Regular Expression combined to help fight old browsers.
 
 ### REQUIREMENTS ###
 
@@ -26,8 +26,3 @@ XSL template and regexp combined to help fight old browsers.
 *Voila !*
 
 http://www.deuxhuithuit.com
-
-### History ###
-
-- 1.0 - 2012-08-29    
-  First release: Param value and XSL template  

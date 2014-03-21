@@ -10,10 +10,12 @@
 	<xsl:param name="chrome" select="true()" />
 	<xsl:param name="opera" select="true()" />
 	<xsl:param name="ie" select="true()" />
+	<xsl:param name="client-side-detection" select="false()" />
 	
-	
-	<xsl:if test="/data/params/block-user-agent = 'Yes'">
+	<xsl:if test="/data/params/block-user-agent = 'Yes' or $client-side-detection = true()">
+		<div id="block-user-agent">
 		<style type="text/css" scoped="">
+			#block-user-agent {display: none;}
 			#block-user-agent-content {font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;}
 			#block-user-agent-background{position:fixed;width:100%;height:100%;background-color: black; opacity:0.8;z-index: 1000000;top:0;left:0;right:0;bottom:0;}
 			#block-user-agent-content{position:fixed;margin:auto;width:80%;height:400px;text-align:center;z-index: 1000001; top: 50%;left: 50%; margin-top:-200px; margin-left:-40%;}
@@ -53,7 +55,7 @@
 				<div id="block-user-agent-browsers">
 					<xsl:if test="$firefox = true()">
 						<div class="block-user-agent-browser">
-							<a href="http://www.mozilla.com/fr/firefox/" target="_blank" title="Firefox">
+							<a href="http://www.mozilla.com/firefox/" target="_blank" title="Firefox">
 								<img src="/extensions/block_user_agent/assets/firefox-logo.png" alt="Firefox"/>
 								<span>Firefox</span>
 							</a>
@@ -61,7 +63,7 @@
 					</xsl:if>
 					<xsl:if test="$chrome = true()">
 						<div class="block-user-agent-browser">
-							<a href="http://www.google.com/chrome/?hl=fr" target="_blank" title="Chrome">
+							<a href="http://www.google.com/chrome/" target="_blank" title="Chrome">
 								<img src="/extensions/block_user_agent/assets/google-chrome-logo.png" alt="Chrome"/>
 								<span>Google Chrome</span>
 							</a>
@@ -78,7 +80,7 @@
 					<xsl:if test="$ie = true()">
 						<div class="block-user-agent-browser">
 							<a href="http://www.microsoft.com/windows/internet-explorer/" target="_blank" title="Internet Explorer">
-								<img src="/extensions/block_user_agent/assets/ie9-logo.png" alt="Internet Explorer 9"/>
+								<img src="/extensions/block_user_agent/assets/ie9-logo.png" alt="Internet Explorer"/>
 								<span>Internet Explorer</span>
 							</a>
 						</div>
@@ -91,6 +93,16 @@
 					</span>
 				</div>
 			</div>
+		</div>
+		
+		<xsl:if test="$client-side-detection = true()">
+			<script>
+				if (!<xsl:value-of select="/data/params/block-user-agent-regex" />.test(navigator.userAgent.toString())) {
+					document.body.removeChild(document.getElementById('block-user-agent'));
+				}
+			</script>
+		</xsl:if>
+		
 		</div>
 	</xsl:if>
 </xsl:template>
