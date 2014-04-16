@@ -84,7 +84,7 @@
 		 */
 		public function install() {
 			Symphony::Configuration()->set('regex', '', self::SETTING_GROUP);
-			Administration::instance()->saveConfig();
+			Administration::Configuration()->write();
 		}
 		
 		/**
