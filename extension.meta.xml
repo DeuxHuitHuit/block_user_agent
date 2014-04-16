@@ -20,6 +20,9 @@
 		<!-- None -->
 	</dependencies>
 	<releases>
+		<release version="1.2" date="2014-04-16" min="2.4">
+			- Fix compatibility of symphony 2.4
+		</release>
 		<release version="1.1" date="2014-03-21" min="2.2" max="2.3.x">
 			- Added the `client-side-detection` parameter in the xsl template. This allows client-
 			side detection.
