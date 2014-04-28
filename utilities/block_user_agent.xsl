@@ -19,13 +19,18 @@
 			#block-user-agent-background{position:fixed;width:100%;height:100%;background-color: black; opacity:0.8;z-index: 1000000;top:0;left:0;right:0;bottom:0;}
 			#block-user-agent-content{position:fixed;margin:auto;width:80%;height:400px;text-align:center;z-index: 1000001; top: 50%;left: 50%; margin-top:-200px; margin-left:-40%;}
 			#block-user-agent-content-wrap{position:relative;}
+			#block-user-agent-warning {margin: 0 auto;display:block;width:60px;height:54px; background: transparent url(/extensions/block_user_agent/assets/warning.png) no-repeat 50% 0%;} 
 			#block-user-agent-title{margin-top:30px;font-size:20px;font-weight:bold;color:#FFFFFF;height:25px;}
 			#block-user-agent-subTitle{font-size:17px;margin-top:5px;color:#FFFFFF;}
 			#block-user-agent-browsers{margin:30px auto 0 auto;width:80%;}
 			.block-user-agent-browser{margin: 0 25px 0 25px;display:inline-block;width:110px;vertical-align:top;}
-			.block-user-agent-browser span{display:block;margin-top:5px;}
-			.block-user-agent-browser a{padding:10px 1px 10px 1px;display:block;color:#FFFFFF;text-decoration:none;font-size:12px;position:relative;}
-			.block-user-agent-browser a:hover{text-decoration:none;padding:9px 0 9px 0;border:1px solid white;}
+			.block-user-agent-browser span{display:block;margin-top:5px;font-size:12px;line-height:14px;}
+			.block-user-agent-browser a{border:none;padding:50px 1px 1px 1px;display:block;color:#FFFFFF;text-decoration:none;position:relative;width:50px;height:50px;background-position:50% 0%;background-repeat:no-repeat;}
+			.block-user-agent-browser a:hover{text-decoration:none;padding:49px 0 0 0;border:1px solid white;}
+			.block-user-agent-browser a.block-user-agent-firefox{background-image:url(/extensions/block_user_agent/assets/firefox-logo.png);}
+			.block-user-agent-browser a.block-user-agent-chrome {background-image:url(/extensions/block_user_agent/assets/google-chrome-logo.png);}
+			.block-user-agent-browser a.block-user-agent-opera  {background-image:url(/extensions/block_user_agent/assets/opera-logo.png);}
+			.block-user-agent-browser a.block-user-agent-ie     {background-image:url(/extensions/block_user_agent/assets/ie9-logo.png);}
 			#block-user-agent-closePop{width:100%;position:absolute;bottom:-80px;font-size:16px;color:#FFFFFF;}
 			#block-user-agent-closePop a{display:inline-block;width:18px;height:18px;margin-right:20px;color:#FFFFFF;text-decoration:none;border:1px solid white;padding:6px 7px 4px 7px;}
 			#block-user-agent-closePop a:hover{background-color:#FFFFFF;color:#000000;}
@@ -40,7 +45,7 @@
 		<div id="block-user-agent-background"></div>
 		<div id="block-user-agent-content">
 			<div id="block-user-agent-content-wrap">
-				<img src="/extensions/block_user_agent/assets/warning.png" alt=""/>
+				<div id="block-user-agent-warning"></div>
 				<p id="block-user-agent-title">
 					<xsl:value-of select="$title" />
 				</p>
@@ -54,32 +59,28 @@
 				<div id="block-user-agent-browsers">
 					<xsl:if test="$firefox = true()">
 						<div class="block-user-agent-browser">
-							<a href="http://www.mozilla.com/firefox/" target="_blank" title="Firefox">
-								<img src="/extensions/block_user_agent/assets/firefox-logo.png" alt="Firefox"/>
+							<a href="http://www.mozilla.com/firefox/" class="block-user-agent-firefox" target="_blank" title="Firefox">
 								<span>Firefox</span>
 							</a>
 						</div>
 					</xsl:if>
 					<xsl:if test="$chrome = true()">
 						<div class="block-user-agent-browser">
-							<a href="http://www.google.com/chrome/" target="_blank" title="Chrome">
-								<img src="/extensions/block_user_agent/assets/google-chrome-logo.png" alt="Chrome"/>
+							<a href="http://www.google.com/chrome/" class="block-user-agent-chrome" target="_blank" title="Chrome">
 								<span>Google Chrome</span>
 							</a>
 						</div>
 					</xsl:if>
 					<xsl:if test="$opera = true()">
 						<div class="block-user-agent-browser">
-							<a href="http://www.opera.com/download/" target="_blank" title="Opera">
-								<img src="/extensions/block_user_agent/assets/opera-logo.png" alt="Opera"/>
+							<a href="http://www.opera.com/download/" class="block-user-agent-opera" target="_blank" title="Opera">
 								<span>Opera</span>
 							</a>
 						</div>
 					</xsl:if>
 					<xsl:if test="$ie = true()">
 						<div class="block-user-agent-browser">
-							<a href="http://www.microsoft.com/windows/internet-explorer/" target="_blank" title="Internet Explorer">
-								<img src="/extensions/block_user_agent/assets/ie9-logo.png" alt="Internet Explorer"/>
+							<a href="http://www.microsoft.com/windows/internet-explorer/" class="block-user-agent-ie" target="_blank" title="Internet Explorer">
 								<span>Internet Explorer</span>
 							</a>
 						</div>
