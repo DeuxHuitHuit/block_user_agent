@@ -12,7 +12,7 @@
 	<xsl:param name="ie" select="true()" />
 	<xsl:param name="client-side-detection" select="false()" />
 	
-	<xsl:if test="/data/params/block-user-agent = 'Yes' or $client-side-detection = true()">
+	<xsl:if test="/data/params/block-user-agent = 'Yes' or (string-length(/data/params/block-user-agent-regex) != 0 and $client-side-detection = true())">
 		<div id="block-user-agent" style="display:none">
 		<style type="text/css" scoped="">
 			#block-user-agent-content {font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;}
@@ -95,7 +95,7 @@
 			</div>
 		</div>
 		
-		<xsl:if test="$client-side-detection = true()">
+		<xsl:if test="string-length(/data/params/block-user-agent-regex) != 0 and $client-side-detection = true()">
 			<script>
 				(function (d, n) {
 					if (!<xsl:value-of select="/data/params/block-user-agent-regex" />.test(navigator.userAgent.toString())) {
