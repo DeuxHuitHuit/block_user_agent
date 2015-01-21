@@ -84,7 +84,7 @@
 		 */
 		public function install() {
 			Symphony::Configuration()->set('regex', '', self::SETTING_GROUP);
-			Administration::Configuration()->write();
+			Symphony::Configuration()->write();
 		}
 		
 		/**
@@ -103,7 +103,7 @@
 		 */
 		public function uninstall() {
 			Symphony::Configuration()->remove(self::SETTING_GROUP);
-			Administration::instance()->saveConfig();
+			Symphony::Configuration()->write();
 		}
 
 		/**
