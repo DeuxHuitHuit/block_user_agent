@@ -118,7 +118,7 @@
 			$fieldset->appendChild(new XMLElement('legend', self::EXT_NAME));
 
 			// create a paragraph for short intructions
-			$p = new XMLElement('p', __('Define here when and how IP are blocked'), array('class' => 'help'));
+			$p = new XMLElement('p', __('Define how UA are blocked'), array('class' => 'help'));
 
 			// append intro paragraph
 			$fieldset->appendChild($p);
