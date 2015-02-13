@@ -38,8 +38,15 @@
 		</style>
 		<script>
 			function block_user_agent_close() {
-				document.body.removeChild(document.getElementById('block-user-agent-background'));
-				document.body.removeChild(document.getElementById('block-user-agent-content'));
+				var bg = document.getElementById('block-user-agent-background');
+				var ct = document.getElementById('block-user-agent-content');
+				try {
+					document.body.removeChild(bg);
+					document.body.removeChild(ct);
+				} catch (ex) {
+					bg.parentNode.removeChild(bg);
+					ct.parentNode.removeChild(ct);
+				}
 			};
 		</script>
 		<div id="block-user-agent-background"></div>
@@ -99,7 +106,11 @@
 			<script>
 				(function (d, n) {
 					if (!<xsl:value-of select="/data/params/block-user-agent-regex" />.test(navigator.userAgent.toString())) {
-						d.body.removeChild(n);
+						try {
+							d.body.removeChild(n);
+						} catch (ex) {
+							n.parentNode.removeChild(n);
+						}
 					} else {
 						n.setAttribute('style','');
 					}
