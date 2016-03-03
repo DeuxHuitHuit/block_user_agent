@@ -1,6 +1,6 @@
 # Block User Agent #
 
-Version: 1.3.x
+Version: 1.4.x
 
 XSL template and Regular Expression combined to help fight old browsers.
 
