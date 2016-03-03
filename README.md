@@ -21,7 +21,7 @@ XSL template and Regular Expression combined to help fight old browsers.
 - You must call the block-user-agent template directly under the `<body>` tag. Parameters are optional
 	- `<xsl:call-template name="block-user-agent" />`
 	- Default parameters are:
-		- ```xslt
+	```xslt
 		<xsl:param name="title" select="'This website uses technologies your browser does not support.'" />`
 		<xsl:param name="subtitle" select="'Please upgrade now usign the links below.'" />`
 		<xsl:param name="close" select="'Click here if you still want to access the site.'" />`
@@ -34,7 +34,7 @@ XSL template and Regular Expression combined to help fight old browsers.
 - You can also call the light template
 	- `<xsl:call-template name="block-user-agent-light" />`
 	- Default parameters are:
-		- ```xslt
+	```xslt
 		<xsl:param name="text" select="'This website uses technologies your browser does not support.'" />
 		<xsl:param name="client-side-detection" select="false()" />
 	```
