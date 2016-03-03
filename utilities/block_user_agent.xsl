@@ -13,7 +13,10 @@
 	<xsl:param name="client-side-detection" select="false()" />
 	
 	<xsl:if test="/data/params/block-user-agent = 'Yes' or (string-length(/data/params/block-user-agent-regex) != 0 and $client-side-detection = true())">
-		<div id="block-user-agent" style="display:none">
+		<div id="block-user-agent">
+			<xsl:if test="$client-side-detection = true()">
+				<xsl:attribute name="style">display:none;</xsl:attribute>
+			</xsl:if>
 		<style type="text/css" scoped="">
 			#block-user-agent-content {font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;}
 			#block-user-agent-background{position:fixed;width:100%;height:100%;background-color: black; opacity:0.8;z-index: 1000000;top:0;left:0;right:0;bottom:0;}
@@ -121,5 +124,61 @@
 		</div>
 	</xsl:if>
 </xsl:template>
+
+<xsl:template name="block-user-agent-light">
+	<xsl:param name="text" select="'This website uses technologies your browser does not support.'" />
+	<xsl:param name="client-side-detection" select="false()" />
 	
+	<xsl:if test="/data/params/block-user-agent = 'Yes' or (string-length(/data/params/block-user-agent-regex) != 0 and $client-side-detection = true())">
+		<div id="block-user-agent">
+			<xsl:if test="$client-side-detection = true()">
+				<xsl:attribute name="style">display:none;</xsl:attribute>
+				<xsl:attribute name="onclick">this.innerHTML='';</xsl:attribute>
+			</xsl:if>
+			<style type="text/css" scoped="">
+				<xsl:text>#block-user-agent-content {</xsl:text>
+					<xsl:text>position: fixed;</xsl:text>
+					<xsl:text>top: 0;</xsl:text>
+					<xsl:text>left: 0;</xsl:text>
+					<xsl:text>right: 0;</xsl:text>
+					<xsl:text>bottom: auto;</xsl:text>
+					<xsl:text>z-index: 2147483647;</xsl:text>
+					<xsl:text>background-color: #000;</xsl:text>
+					<xsl:text>background-color: rgba(0, 0, 0, 0.6);</xsl:text>
+					<xsl:text>color: #FFF;</xsl:text>
+					<xsl:text>font-weight: bold;</xsl:text>
+					<xsl:text>font-size: 1.5em;</xsl:text>
+					<xsl:text>font-family: inherit;</xsl:text>
+					<xsl:text>line-height: 2em;</xsl:text>
+					<xsl:text>vertical-align: middle;</xsl:text>
+					<xsl:text>padding: 1em;</xsl:text>
+					<xsl:text>cursor: hand;</xsl:text>
+					<xsl:text>cursor: pointer;</xsl:text>
+				<xsl:text>}</xsl:text>
+			</style>
+			<div id="block-user-agent-content" data-message="{$text}"></div>
+			
+			<xsl:if test="string-length(/data/params/block-user-agent-regex) != 0 and $client-side-detection = true()">
+				<script>
+					<xsl:text>(function (d, n, c) {</xsl:text>
+						<xsl:text>if (!</xsl:text>
+						<xsl:value-of select="/data/params/block-user-agent-regex" />
+						<xsl:text>.test(navigator.userAgent.toString())) {</xsl:text>
+							<xsl:text>n.innerHTML = '';</xsl:text>
+						<xsl:text>} else {</xsl:text>
+							<xsl:text>if (c.getAttribute) {</xsl:text>
+								<xsl:text>c.innerHTML = c.getAttribute('data-message');</xsl:text>
+							<xsl:text>}</xsl:text>
+							<xsl:text>else {</xsl:text>
+								<xsl:text>c.innerHTML = c.attributes[1];</xsl:text>
+							<xsl:text>}</xsl:text>
+							<xsl:text>n.setAttribute('style','');</xsl:text>
+						<xsl:text>}</xsl:text>
+					<xsl:text>})(document, document.getElementById('block-user-agent'), document.getElementById('block-user-agent-content'))</xsl:text>
+				</script>
+			</xsl:if>
+		</div>
+	</xsl:if>
+</xsl:template>
+
 </xsl:stylesheet>
