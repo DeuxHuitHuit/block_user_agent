@@ -136,7 +136,7 @@
 				<xsl:attribute name="onclick">this.innerHTML='';</xsl:attribute>
 			</xsl:if>
 			<style type="text/css" scoped="">
-				<xsl:text>#block-user-agent-content {</xsl:text>
+				<xsl:text>#block-user-agent-ctn {</xsl:text>
 					<xsl:text>position: fixed;</xsl:text>
 					<xsl:text>top: 0;</xsl:text>
 					<xsl:text>left: 0;</xsl:text>
@@ -152,11 +152,18 @@
 					<xsl:text>line-height: 2em;</xsl:text>
 					<xsl:text>vertical-align: middle;</xsl:text>
 					<xsl:text>padding: 1em;</xsl:text>
+					<xsl:text>margin: 0;</xsl:text>
 					<xsl:text>cursor: hand;</xsl:text>
 					<xsl:text>cursor: pointer;</xsl:text>
 				<xsl:text>}</xsl:text>
+				<xsl:text>#block-user-agent-content {</xsl:text>
+					<xsl:text>max-width: 700px;</xsl:text>
+					<xsl:text>margin: 0 auto;</xsl:text>
+				<xsl:text>}</xsl:text>
 			</style>
-			<div id="block-user-agent-content" data-message="{$text}"></div>
+			<div id="block-user-agent-ctn">
+				<div id="block-user-agent-content" data-message="{$text}"></div>
+			</div>
 			
 			<xsl:if test="string-length(/data/params/block-user-agent-regex) != 0 and $client-side-detection = true()">
 				<script>
