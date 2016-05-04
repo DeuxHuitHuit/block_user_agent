@@ -159,6 +159,7 @@
 				<xsl:text>#block-user-agent-content {</xsl:text>
 					<xsl:text>max-width: 700px;</xsl:text>
 					<xsl:text>margin: 0 auto;</xsl:text>
+					<xsl:text>text-align: center;</xsl:text>
 				<xsl:text>}</xsl:text>
 			</style>
 			<div id="block-user-agent-ctn">
