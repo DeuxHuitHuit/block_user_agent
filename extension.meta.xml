@@ -21,6 +21,9 @@
 		<!-- None -->
 	</dependencies>
 	<releases>
+		<release version="1.4.2" date="2016-05-04" min="2.4" max="2.x.x">
+			- Center the text of the light template
+		</release>
 		<release version="1.4.1" date="2016-03-04" min="2.4" max="2.x.x">
 			- Added a max-width on the text for the lighter template
 		</release>
