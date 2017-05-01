@@ -13,13 +13,13 @@
 	 *
 	 */
 	class extension_block_user_agent extends Extension {
-		
+
 		/**
 		 * Name of the extension
 		 * @var string
 		 */
 		const EXT_NAME = 'Block User Agent';
-		
+
 		const SETTING_GROUP = 'block-user-agent';
 
 		/**
@@ -50,14 +50,14 @@
 					'page'      => '/system/preferences/',
 					'delegate'  => 'Save',
 					'callback'  => 'save'
-				)	
+				)
 			);
 		}
-		
+
 		public static function getRegEx() {
 			return Symphony::Configuration()->get('regex', self::SETTING_GROUP);
 		}
-		
+
 		public static function isBlocked() {
 			$regex = self::getRegEx();
 			$val = 0;
@@ -70,14 +70,14 @@
 			}
 			return $val;
 		}
-		
+
 		public function frontendParamsPostResolve($params) {
 			$blocked = self::isBlocked();
 			$params['params']['block-user-agent'] = ($blocked === 1 ? 'Yes' : ($blocked === 0 ? 'No' : $blocked));
 			$params['params']['block-user-agent-regex'] = self::getRegEx();
-		} 
-		
-		
+		}
+
+
 		/**
 		 *
 		 * Delegate fired when the extension is install
@@ -86,14 +86,14 @@
 			Symphony::Configuration()->set('regex', '', self::SETTING_GROUP);
 			Symphony::Configuration()->write();
 		}
-		
+
 		/**
 		 *
 		 * Delegate fired when the extension is updated (when version changes)
 		 * @param string $previousVersion
 		 */
-		public function update($previousVersion) {
-			
+		public function update($previousVersion = false) {
+
 		}
 
 		/**
@@ -129,7 +129,7 @@
 			// create a wrapper
 			//$wrapper = new XMLElement('div');
 			//$wrapper->setAttribute('class', 'group');
-			
+
 			// create the label and the input field
 			$label = Widget::Label();
 			$input = Widget::Input(
@@ -137,16 +137,16 @@
 					self::getRegEx(),
 					'text'
 			);
-			
+
 			// set the input into the label
 			$label->setValue(__('Specify here the regex to test against UA'). ' ' . $input->generate() . $err);
 
 			//$wrapper->appendChild($label);
 			$out_wrapper->appendChild($label);
-			
+
 			// wrapper into fieldset
 			$fieldset->appendChild($out_wrapper);
-			
+
 			// adds the field set to the wrapper
 			$context['wrapper']->appendChild($fieldset);
 		}
@@ -157,6 +157,6 @@
 		 * @param array $context
 		 */
 		public function save(&$context) {
-			
+
 		}
 	}
